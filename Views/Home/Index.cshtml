@@ -1,0 +1,59 @@
+﻿@model IEnumerable<EmployeeDetailsProj.Models.tblUserInfo>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table" border="1" style="border-collapse:collapse">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Emp_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emp_Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emp_Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emp_Dept)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Dept)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Emp_ID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Emp_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Emp_ID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
