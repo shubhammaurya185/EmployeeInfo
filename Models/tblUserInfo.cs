@@ -11,13 +11,28 @@ namespace EmployeeDetailsProj.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     public partial class tblUserInfo
     {
+        [ScaffoldColumn(false)]
         public int Emp_ID { get; set; }
+
+        [DisplayName("Employee Name")]
+        [Required(ErrorMessage = "Employee Name is required")]
+        [StringLength(100, MinimumLength = 3)]
         public string Emp_Name { get; set; }
+
+        [Required(ErrorMessage = "Employee Mobile is required")]
+        [StringLength(10)]
         public string Emp_Mobile { get; set; }
+
+        [Required(ErrorMessage = "Employee Address is required")]
+        [StringLength(300)]
         public string Emp_Address { get; set; }
+
+        [Required(ErrorMessage = "Employee Department is required")]
+        [StringLength(300)]
         public string Emp_Dept { get; set; }
     }
 }
